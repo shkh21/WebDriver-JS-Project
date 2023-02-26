@@ -1,0 +1,23 @@
+{
+  "name": "sampletestjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "chromedriver": "^110.0.0",
+    "geckodriver": "^3.2.0",
+    "mocha": "^10.2.0",
+    "promise": "^8.3.0",
+    "selenium-webdriver": "^4.8.0",
+    "webdriver-manager": "^12.1.9"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3"
+  }
+}

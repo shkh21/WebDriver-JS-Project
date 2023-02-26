@@ -1,0 +1,25 @@
+1.	Install the package:  npm install mochawesome
+2.	Update scripts>test in package.json
+//from
+"scripts": {
+    "test": "mocha --no-timeouts --parallel"
+  },
+// to
+  "scripts": {
+    "test": "mocha --no-timeouts –parallel –reporter mochawesome –require mochawesome/register"
+  },
+//–require mochawesome/register is used because we use “parallel” keyword in ‘mocha --no-timeouts –parallel –reporter mochawesome –require mochawesome/register’. i.e because we are running tests in parallel.
+
+3.	Then run command on terminal: npm test
+4.	If you want to change the name of the file of mochawesome-report to something else
+ "scripts": {
+   "test": "mocha --no-timeouts –parallel –reporter mochawesome –require mochawesome/register –reporter-options reportFilename=customReportFilename"
+  }
+
+// If you want to change the path of the file of mochawesome-report
+"scripts": {
+   "test": "mocha --no-timeouts –parallel –reporter mochawesome –require mochawesome/register –reporter-options reportDir=customReportDir,reportFilename=customReportFilename"
+  },
+
+
+

@@ -1,0 +1,12 @@
+1.	Create another test file under test folder and write test code
+2.	For running test in parallel using mocha just modify your package.json 
+  "scripts": {
+    "test": "mocha --no-timeouts"
+  }
+//with
+  "scripts": {
+    "test": "mocha --no-timeouts --parallel"
+  }
+3.	Then on terminal type command: npm test
+// All the test files under test folder will run in parallel. 
+

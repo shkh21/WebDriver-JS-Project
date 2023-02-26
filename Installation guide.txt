@@ -1,0 +1,75 @@
+1. Create a folder in pc.
+2. Open that folder in visual studio code
+3. Open terminal of visual code 
+4. Type the command: npm init
+   This will install node project
+5. Install selenium webdriver globally: npm install -g selenium-webdriver // or npm install selenium-webdriver
+6. Install chrome driver globally: npm install -g chromedriver // or npm install chromedriver
+7. Download chrome.exe from http://chromedriver.storage.googleapis.com/index.html , for the executable chromedriver for selenium that match
+your google chrome version.
+8. Exteact file and copy paste chrome.exe in C:\Windows.
+
+Practice app url: https://library-app.firebaseapp.com
+
+9. Create library.js file for writing code for testing above url
+10. Type the code:
+/*
+// method 1
+const {Builder, By, until} = require('selenium-webdriver');
+(async function example() {
+    let driver = await new Builder().forBrowser('chrome').build();
+    try {
+        await driver.get('https://library-app.firebaseapp.com');
+        await driver.sleep(2000);
+        await driver.findElement(By.xpath("//input[@id='ember26']")).sendKeys('abc@gmail.com');
+        await driver.sleep(2000);
+    } finally {
+      await driver.quit();
+    }
+  })();
+  
+ */
+ /*
+ // method 2
+  const {Builder, By, until} = require('selenium-webdriver');
+new Builder()
+    .forBrowser('chrome')
+    .build()
+    .then(driver => {
+      return driver.get('https://library-app.firebaseapp.com')
+        .then(_ => driver.findElement(By.xpath("//input[@id='ember26']")).sendKeys('abc@gmail.com'))
+        .then(_=>driver.sleep(4000))
+       // .then(_ => driver.findElement(By.name('btnK')).click())
+       // .then(_ => driver.wait(until.titleIs('webdriver - Google Search'), 1000))
+        .then(_ => driver.quit());
+    });
+ */
+
+
+11. Run it by typing command visual studio code terminal: node library.js
+
+12. To install chai assertion library- npm install chai
+
+13. To install mocha test framework- npm install mocha
+
+14. Run mocha test- mocha test
+                    or you can use command like
+			  npx mocha --no-timeouts 'test/*.js'
+                    or
+			  npx mocha --no-timeouts 'test/library-test.js'
+			  or
+			  npx mocha --no-timeouts
+
+15. You can update your package.json file for 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+
+ //with
+
+  "scripts": {
+    "test": "mocha --no-timeouts"
+  }
+
+and then you run your test using command: npm test // or npm test 'test/library-test.js'
+// you dont need to specify npx mocha --no-timeouts 'test/library-test.js' , since you specified time out in package.json
